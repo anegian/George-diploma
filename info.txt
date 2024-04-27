@@ -1,0 +1,24 @@
+Your idea introduces an interesting approach to refine the predictions for future sales by considering historical prediction errors. You suggest adjusting future predictions based on the historical performance of the model for the same month in previous years, essentially calibrating future predictions with past prediction errors. This can be especially useful if certain patterns or systematic biases are observed in predictions for specific times of the year.
+
+To implement your idea, you would need to:
+
+Train and make initial predictions: Initially, train your model on historical data and make predictions for the same dataset.
+Calculate prediction errors: For each prediction, calculate the error percentage as the difference between the predicted and actual values, normalized by the predicted values.
+Aggregate errors by month: Compute a median (or mean, depending on your preference) error percentage for each month based on all available years.
+Adjust future predictions: When predicting sales for 2025, adjust the predictions by the aggregated error percentage for the corresponding month.
+Here's how you might implement this:
+
+python
+Copy code
+# After training the model and making predictions on the historical dataset
+
+# Calculate prediction errors
+historical_predictions = svr.predict(X_scaled)  # Predictions on the historical data
+data_with_predictions = sales_data_df.copy()
+data_with_predictions['PredictedSales'] = historical_predictions
+data_with_predictions['ErrorPercentage'] = (data_with_predictions['Sales'] - data_with_predictions['PredictedSales']) / data_with_predictions['PredictedSales']
+
+# Aggregate errors by month
+monthly_errors = data_with_predictions.groupby('Month')['ErrorPercentage'].median().reset_index()
+
+# For

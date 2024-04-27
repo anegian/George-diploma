@@ -1,0 +1,11 @@
+Product ID;Product Category;Unit Price;Quantity;Total;Gender
+1;Grocery ;2.5;3; 7.5 ;Female
+2;Clothing;20;1;20;Female
+3;Electronics;50;2;100;Male
+4;Grocery ;3;2;6;Female
+5;Electronics;80;1;80;Male
+6;Grocery ;3;5;15;Male
+7;Clothing;20;3;60;Female
+8;Grocery ;5;5;25;Female
+9;Electronics;25;2;50;Female
+10;Grocery ;1;10;10;Male

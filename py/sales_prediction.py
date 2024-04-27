@@ -1,8 +1,3 @@
-"""
-   Evaluate the given model on the test data and print classification report, 
-   confusion matrix, and training score.
-
-"""
 # 1. Necessary imports
 import pandas as pd
 import numpy as np
@@ -13,7 +8,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # Load Data from csv file for training the model
-sales_training = pd.read_csv('sales_prediction.csv')
+sales_training = pd.read_csv('C:\\Users\\user\\Desktop\\ergasia\\sales_prediction.csv')
 
 # Take only the first 100 rows for training
 X_train = sales_training.drop(["Month"], axis=1)
@@ -24,7 +19,7 @@ svc_model = SVC(kernel="linear", gamma="scale", C=1.0)
 svc_model.fit(X_train, y_train)
 
 # Load the actual sales data for comparison
-actual_sales = pd.read_csv('sales.csv')
+actual_sales = pd.read_csv('C:\\Users\\user\\Desktop\\ergasia\\sales.csv')
 
 # Extract the actual months and quantities sold
 actual_sales["Month"] = pd.to_datetime(actual_sales["Month"])
