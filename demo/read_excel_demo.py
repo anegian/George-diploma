@@ -1,13 +1,9 @@
 """
-   Evaluate the given model on the test data and print classification report, 
-   confusion matrix, and training score.
+   Preprocess the excel data files to export a new combined training data set
 
 """
 
 import pandas as pd
-
-# # Set display options to show all columns
-# pd.set_option('display.max_columns', None)
 
 # Step 1: Read the dataset
 sales2019 = pd.read_excel('SALES2019_test.xlsx')
@@ -18,7 +14,6 @@ forecast2020 = pd.read_excel('BDG2020_test.xlsx')
 # Delete the first row
 forecast2019 = forecast2019.drop(0)
 forecast2020 = forecast2020.drop(0)
-
 
 # Reset index after dropping the row
 forecast2019 = forecast2019.reset_index(drop=True)
